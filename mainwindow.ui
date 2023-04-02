@@ -1,0 +1,3454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>639</width>
+    <height>678</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Layout Styles */
+    /* Controls */
+        /* Basic Input */
+            /* Reset */
+                * {
+                    spacing: 0px;
+                    outline: 0px solid transparent;
+                    margin: 0px;
+                    border: 0px solid transparent;
+                    border-radius: 0px;
+                    padding: 0px;
+                }
+
+            /* Button */
+                QPushButton,
+                _ {
+                    min-width: 96px;
+                    min-height: 20px;
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 4px 11px 6px;
+                }
+
+                QPushButton:focus,
+                _ {
+                    margin: 0px;
+                    border-width: 2px;
+                    border-radius: 7px;
+                    background-clip: padding;
+                    padding: 7px 13px 8px;
+                }
+
+            /* Combo Box */
+                QComboBox,
+                _ {
+                    min-width: 96px;
+                    min-height: 20px;
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 4px 35px 6px 11px;
+                }
+
+                QComboBox:focus,
+                _ {
+                    margin: 0px;
+                    border-width: 2px;
+                    border-radius: 7px;
+                    background-clip: padding;
+                    padding: 7px 37px 8px 13px;
+                }
+
+                QComboBox:on,
+                _ {
+                    padding-bottom: 4px;
+                    border-bottom-width: 2px;
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                }
+
+                QComboBox::drop-down,
+                _ {
+                    width: 16px;
+                    height: 16px;
+                    padding: 3px 5px;
+                    subcontrol-origin: margin;
+                    subcontrol-position: top right;
+                    top: 7px;
+                    right: 7px;
+                    border-radius: 3px;
+                }
+
+                QComboBox QAbstractItemView,
+                _ {
+                    padding: 9px 11px 11px;
+                    border-width: 1px;
+                }
+
+            /* Checkbox */
+                QWidget::indicator,
+                _ {
+                    width: 12px;
+                    height: 12px;
+                    padding: 3px;
+                    border-style: solid;
+                    border-width: 1px;
+                    border-radius: 4px;
+                }
+
+                QWidget::indicator:indeterminate,
+                QWidget::indicator:checked,
+                _ {
+                    border-width: 0px;
+                    padding: 4px;
+                }
+
+                QCheckBox,
+                _ {
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 5px 8px 5px 3px;
+                    spacing: 8px;
+                }
+                    
+                QCheckBox:focus,
+                _ {
+                    margin: 0px;
+                    border-width: 2px;
+                    border-radius: 7px;
+                    padding: 7px 10px 7px 5px;
+                }
+
+            /* Radio Button */
+                QRadioButton::indicator,
+                _ {
+                    top: 1px;
+                    border-width: 1px;
+                    border-radius: 10px;
+                }
+
+                QRadioButton::indicator:checked:disabled,
+                QRadioButton::indicator:checked,
+                _ {
+                    padding: 4px;
+                    border-width: 0px;
+                }
+
+                QRadioButton::indicator:checked:hover,
+                _ {
+                    width: 14px;
+                    height: 14px;
+                    padding: 3px;
+                }
+
+                QRadioButton::indicator:checked:pressed,
+                _ {
+                    width: 10px;
+                    height: 10px;
+                    padding: 5px;
+                }
+
+                QRadioButton::indicator:pressed,
+                _ {
+                    width: 10px;
+                    height: 10px;
+                    padding: 4px;
+                }
+            
+                QRadioButton,
+                _ {
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 4px 9px 6px 4px;
+                    spacing: 8px;
+                }
+
+                QRadioButton:focus,
+                _ {
+                    margin: 0px;
+                    border-width: 2px;
+                    border-radius: 7px;
+                    padding: 6px 11px 8px 6px;
+                }
+        
+            /* Slider */
+                QSlider:horizontal,
+                _ {
+                    min-height: 32px;
+                    max-height: 32px;
+                }
+
+                QSlider:vertical,
+                _ {
+                    min-width: 32px;
+                    max-width: 32px;
+                }
+
+                QSlider::groove:horizontal,
+                _ {
+                    height: 4px;
+                    margin: 0 12px;
+                }
+
+                QSlider::groove:vertical,
+                _ {
+                    width: 4px;
+                    margin: 12 0px;
+                }
+
+                QSlider::sub-page:horizontal,
+                _ {
+                    margin: 0 0 0 12px;
+                }
+                
+                QSlider::sub-page:vertical,
+                _ {
+                    margin: 0 0 12px 0;
+                }
+
+                QSlider::add-page:horizontal,
+                _ {
+                    margin: 0 12px 0 0;
+                }
+
+                QSlider::add-page:vertical,
+                _ {
+                    margin: 12px 0 0 0;
+                }
+                
+                QSlider::handle:horizontal,
+                _ {
+                    margin: -8px -11px -8px -10px;
+                }
+
+                QSlider::handle:vertical,
+                _ {
+                    margin: -11px -8px -10px -8px;
+                }
+                
+                QSlider::handle,
+                _ {
+                    border-style: solid;
+                    border-width: 4px;
+                    border-radius: 10px;
+                }
+
+                QSlider::handle:hover,
+                _ {
+                    border-width: 3px;
+                }
+
+                QSlider::handle:pressed,
+                QSlider::handle:disabled,
+                _ {
+                    border-width: 5px;
+                }
+
+                QSlider::add-page,
+                QSlider::sub-page,
+                QSlider::groove,
+                _ {
+                    border-radius: 2px;
+                }
+
+        /* Lists &amp; Collectins */
+            /* Tree View  */
+                QTreeView,
+                _ {
+                    show-decoration-selected: 1;
+                    qproperty-alternatingRowColors: false;
+                }
+
+                QTreeView::item,
+                _ {
+                    margin: 0px;
+                    padding: 2px 0px 1px;
+                }
+
+                QTreeView::branch,
+                _ {
+                    padding: 4px;
+                }
+
+            /* List View */
+                QListView::item,
+                _ {
+                    margin: 0px;
+                    padding: 2px 0px 1px;
+                }
+
+        /* Menus &amp; Toolbars */ 
+            /* Command Bar */
+                QToolBar,
+                _ {
+                    padding: 3px;
+                }
+
+                QToolBar:open,
+                _ {
+                    border-width: 1px;
+                }
+
+                QToolBar:top,
+                _ {
+                    border-bottom-width: 1px;
+                }
+
+                QToolBar:bottom,
+                _ {
+                    border-top-width: 1px;
+                }
+
+                QToolBar:right,
+                _ {
+                    border-left-width: 1px;
+                }
+
+                QToolBar:left,
+                _ {
+                    border-right-width: 1px;
+                }
+
+                QToolBar &gt; QToolButton,
+                _ {
+                    max-width: 40px;
+                    max-height: 40px;
+                    width: 24px;
+                    height: 24px;
+                    padding : 6px;
+                    margin: 2px;
+                    border-radius: 4px;
+                    /* qproperty-popupMode: InstantPopup; */
+                    qproperty-popupMode: DelayedPopup;
+                }
+
+                QToolBar::handle:vertical,
+                QToolBar::separator:vertical,
+                _ {
+                    height: 1px;
+                    padding: 1px 7px 2px;
+                    background-clip: content;
+                }
+
+                QToolBar::handle:horizontal,
+                QToolBar::separator:horizontal,
+                _ {
+                    width: 1px;
+                    padding: 7px 2px 7px 1px;
+                    background-clip: content;
+                }
+
+                QToolBarExtension,
+                _ {
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-clip: margin;
+                    qproperty-icon: url(&quot;&quot;);
+                }
+                
+            /* Context Menu */
+                QMenu,
+                _ {
+                    border-style: solid;
+                    border-width: 1px;
+                }
+
+                QMenu::item,
+                _ {
+                    margin: 3px 4px;
+                    padding: 3px 11px 4px 19px;
+                    border-radius: 4px;
+                }
+
+                QMenu::right-arrow,
+                _ {
+                    subcontrol-origin: content;
+                    subcontrol-position: right center;
+                    top: 1px;
+                    left: -1px;
+                    width: 10px;
+                    height: 10px;
+                }
+
+                QMenu::indicator:checked,
+                QMenu::indicator,
+                QMenu::icon,
+                _ {
+                    margin: 0px;
+                    border: 0px;
+                    padding: 0px;
+                    subcontrol-origin: content;
+                    subcontrol-position: left center;
+                    top: 1px; 
+                    left: -8px;
+                    width: 16px;  
+                    height: 16px;
+                }
+
+                QMenu::indicator:non-exclusive,
+                _ {
+                    top: 2px;
+                    left: -5px;
+                    width: 11px;  
+                    height: 12px;
+                }
+
+                QMenu::separator,
+                _ {
+                    height: 1px;
+                    margin: 1px 0px 2px;
+                }
+
+            /* File Menu */
+                QMenuBar,
+                _ {
+                    border-bottom-width: 1px;
+                }
+
+                QMenuBar::item,
+                _ {
+                    margin: 5px;
+                    padding: 4px 11px 6px;
+                    border-radius: 4px;
+                }
+
+        /* Navigation */
+            /* Top Nav */
+                QTabWidget::tab-bar,
+                _ {
+                    alignment: center;
+                }
+
+                QTabBar,
+                _ {
+                    qproperty-drawBase: 0;
+                }
+
+                QTabBar::tab,
+                _ {
+                    margin: 4px 12px;
+                    padding: 5px 0px 6px;
+                    border-style: solid;
+                    border-width: 0px;
+                    border-bottom-width: 3px;
+                    background-clip: margin;
+                }
+            
+            /* Side Nav */
+                QToolBar#Workbench &gt; QTabWidget[tabPosition=&quot;West&quot;],
+                QToolBar#Workbench &gt; QTabWidget[tabPosition=&quot;East&quot;],
+                _ {
+                    max-width: 40px;
+                }
+
+                QToolBar#Workbench &gt; QTabWidget[tabPosition=&quot;North&quot;],
+                QToolBar#Workbench &gt; QTabWidget[tabPosition=&quot;South&quot;],
+                _ {
+                    max-height: 40px;
+                }
+
+                QToolBar#Workbench &gt; QTabWidget &gt; QTabBar::tab,
+                _ {
+                    height: 24px;
+                    width: 33px;
+                    margin: 2px;
+                    padding: 6px 0px;
+                    border-width: 0px;
+                    border-radius: 4px;
+                    border-left-width: 3px;
+                    background-clip: border;
+                }
+
+                QToolBar#Workbench QTabBar::scroller,
+                _ {
+                    width: 0px;
+                }
+
+                QToolBar#Workbench QTabBar::tear,
+                _ {
+                    width: 0px;
+                }
+
+        /* Scrolling */
+            /* Scroll Bar */
+                QScrollBar,
+                _ {
+                    border-radius: 6px;
+                    padding: 3px;
+                }
+
+                QScrollBar:vertical,
+                _ {
+                    width: 14px;
+                    margin: 1px 3px;
+                    padding: 16px 3px;
+                }
+
+                QScrollBar:vertical:hover,
+                _ {
+                    width: 14px;
+                    margin: 1px;
+                }
+
+                QScrollBar:horizontal,
+                _ {
+                    height: 14px;
+                    margin: 3px 1px;
+                    padding: 3px 16px;
+                }
+
+                QScrollBar:horizontal:hover,
+                _ {
+                    height: 14px;
+                    margin: 1px;
+                }
+
+                QScrollBar::handle,
+                _ {
+                    border-radius: 3px;
+                    min-height: 6px;
+                    min-width: 6px;
+                }
+
+                QScrollBar::handle:vertical,
+                _ {
+                    margin: 2px 0px;
+                }
+
+                QScrollBar::handle:horizontal,
+                _ {
+                    margin: 0px 2px;
+                }
+
+                QScrollBar::sub-line:vertical, 
+                QScrollBar::add-line:vertical,
+                _ {
+                    height: 18px;
+                    width: 14px;
+                    subcontrol-origin: margin;            
+                }
+
+                QScrollBar::sub-line:horizontal, 
+                QScrollBar::add-line:horizontal,
+                _ {
+                    height: 14px;
+                    width: 18px;
+                    subcontrol-origin: margin;     
+                }
+
+                QScrollBar::sub-line:horizontal,
+                _ {
+                    subcontrol-position:left;
+                }
+
+        /* Status &amp; Info */
+            /* Info Card */
+                QGroupBox,
+                _ {
+                    padding: 36px 1px 1px;
+                    border-width: 1px;
+                    border-radius: 7px;
+                }
+
+                QGroupBox::title,
+                _ {
+                    border-style: solid;
+                    border-top-width: 1px;
+                    border-left-width: 1px;
+                    border-top-left-radius: 7px;
+                    padding-top: 10px;
+                    padding-left: 10px;
+                }
+
+            /* Progress */
+                QProgressBar,
+                _ {
+                    margin: 15px 2px 13px;
+                    padding: 4px;
+                    height: 3px;
+                    background-clip: content;
+                }
+
+            /* Tooltip */
+                QToolTip,
+                _ {
+                    padding: 5px 8px 7px;
+                    border-width: 1px;
+                }
+
+        /* Text Fields */
+            /* Number Box */
+                QAbstractSpinBox,
+                _ {
+                    min-width: 39px;
+                    min-height: 20px;
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 4px 46px 6px 11px;
+                }
+
+                QAbstractSpinBox:focus,
+                _ {
+                    padding-bottom: 4px;
+                    border-bottom-width: 2px;
+                }
+
+                QAbstractSpinBox::up-button,
+                _ {
+                    width: 16px;
+                    height: 16px;
+                    padding: 3px 5px;
+                    subcontrol-origin: padding;
+                    subcontrol-position: top right;
+                    top: 4px;
+                    right: 36px;
+                    border-radius: 3px;
+                }
+
+                QAbstractSpinBox::down-button,
+                _ {
+                    width: 16px;
+                    height: 16px;
+                    padding: 3px 5px;
+                    subcontrol-origin: padding;
+                    subcontrol-position: top right;
+                    top: 4px;
+                    right: 4px;
+                    border-radius: 3px;
+                }
+
+            /* Rich Edit Box */
+                QPlainTextEdit,
+                QTextEdit,
+                _ {
+                    min-width: 136px;
+                    min-height: 20px;
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 5px 11px;
+                }
+
+                QPlainTextEdit:focus,
+                QTextEdit:focus,
+                _ {
+                    padding-bottom: 4px;
+                    border-bottom-width: 2px;
+                }
+
+            /* Text Box */
+                QLineEdit,
+                _ {
+                    min-width: 112px;
+                    min-height: 20px;
+                    margin: 3px;
+                    border-width: 1px;
+                    border-radius: 4px;
+                    padding: 4px 11px 6px;
+                }
+
+                QLineEdit:focus,
+                _ {
+                    padding-bottom: 4px;
+                    border-bottom-width: 2px;
+                }
+
+    /* FreeCAD */
+        /* Main Window */
+            /* Dock Area */
+                QDockWidget,
+                _ {
+                    min-width: 380px;
+                    min-height: 140px;
+                }
+
+                QSplitter::handle:horizontal,
+                QMainWindow::separator:horizontal,
+                _ {
+                    height: 1px;
+                }
+
+                QSplitter::handle:vertical,
+                QMainWindow::separator:vertical,
+                _ {
+                    width: 1px;
+                }
+
+            /* Status Bar */
+                QStatusBar,
+                _ {
+                    border-top-width: 1px;
+                    max-height: 24px;
+                }
+
+                QStatusBar::item,
+                _ {
+                    border-width: 0px;
+                }
+
+                QStatusBar QLabel,
+                _ {
+                    margin: 0px 6px;
+                }
+
+                QPushButton#NavigationIndicator,
+                _ {
+                    min-width: 0px;
+                    max-width: 0px;
+                    border-width: 0px;
+                    padding: 0px;
+                    margin: 0px;
+                }
+            
+            /* Document Tab */
+                QMdiArea &gt; QTabBar::tab,
+                _ {
+                    height: 0px;
+                    margin: 0px;
+                    border: 0px;
+                    padding: 0px;
+                }
+
+        /* Dialogs */
+            /* Expression Input*/
+                Gui--Dialog--DlgExpressionInput,
+                _ {
+                    qproperty-ignoreOutputWindowColors: true;
+                }
+
+            /* Preferences */
+                Gui--Dialog--DlgPreferencesImp,
+                _ {
+                    min-height: 768px;
+                    min-width: 1024;
+                }
+
+                Gui--Dialog--DlgPreferencesImp &gt; QWidget#tabWidgetStack,
+                _ {
+                    margin: 12px 12px 12px 0;
+                    border-width: 1px;
+                    border-radius: 7px;
+                }
+
+                Gui--Dialog--DlgPreferencesImp &gt; QListView#listBox,
+                _ {
+                    qproperty-iconSize: 32px;
+                    qproperty-uniformItemSizes: true; 
+                    margin: 12px 0px;
+                }
+
+                Gui--Dialog--DlgPreferencesImp &gt; QListView#listBox::item,
+                _ {
+                    width: 101px;
+                    padding: 12px 0px;
+                    margin-bottom: 6px;
+                    border-radius: 7px;
+                } 
+
+            /* Customize */
+                Gui--Dialog--DlgCustomizeImp,
+                _ {
+                    min-height: 768px;
+                    min-width: 1024;
+                }
+
+            /* Parameters */
+                Gui--Dialog--DlgParameterImp,
+                _ {
+                    min-height: 768px;
+                    min-width: 1024;
+                }
+
+            /* Addon Manager */
+                QDialog[windowTitle=&quot;Addon Manager&quot;],
+                _ {
+                    min-height: 768px;
+                    min-width: 1024;
+                }
+
+        /* Dock Panels */
+            /* Tree View */
+                Gui--TreePanel &gt; QTreeView,
+                _ {
+                    margin: 0px 17px 17px;
+                    qproperty-headerHidden : true;
+                    qproperty-textElideMode : ElideNone;
+                }
+
+                Gui--TreePanel &gt; QTreeView::item,
+                _ {
+                    margin: 0px;
+                    padding: 2px 0px 1px;
+                }
+
+                Gui--TreePanel &gt; QTreeView::indicator,
+                _ {
+                    padding: 0px;
+                    margin-left: -3px;
+                    margin-right: -3px;
+                }
+
+                Gui--TreePanel &gt; QTreeView::indicator:checked,
+                _ {
+                    padding: 1px;
+                }
+
+            /* Selection View */
+                Gui--DockWnd--SelectionView &gt; QLabel,
+                Gui--DockWnd--SelectionView &gt; QCheckBox::indicator,
+                Gui--DockWnd--SelectionView &gt; QCheckBox,
+                _ {
+                    max-width: 0px;
+                    max-height: 0px;
+                    padding: 0px;
+                    margin: 0px;
+                    border: none;
+                }
+
+                Gui--DockWnd--SelectionView &gt; QLineEdit,
+                _ {
+                    margin-left: 38px;
+                }
+
+                Gui--DockWnd--SelectionView &gt; QToolButton,
+                _ {
+                    qproperty-icon: url(&quot;&quot;);
+                    max-height: 22px;
+                    max-width: 30px;
+                    width: 16px;
+                    height: 16px;
+                    padding: 3px 7px;
+                    margin: 1px;
+                    border-radius: 3px;
+                    background-clip: margin;
+                }
+
+                Gui--DockWnd--SelectionView &gt; QTreeView,
+                _ {
+                    qproperty-headerHidden : true;
+                    min-height: 64px;
+                    margin: 0px 42px;
+                }
+                
+            /* Combo View */
+                QTabWidget#combiTab::pane,
+                _ {
+                    position: absolute;
+                    top: -17px;
+                }
+
+                QTabWidget#combiTab QSplitter::handle,
+                _ {
+                    height: 0px;
+                    width: 0px;
+                }
+
+            /* Property View */
+                QTabWidget#propertyTab,
+                _ {
+                    qproperty-tabPosition: North;
+                }
+
+                QTabWidget#propertyTab::tab-bar,
+                _ {
+                    alignment: left;
+                }
+
+                QTabWidget#propertyTab &gt; QTabBar::tab,
+                _ {
+                    margin: 1px;
+                    border: 0px;
+                    padding: 0px;
+                    min-height: 16px;
+                    min-width: 38px;
+                    max-height: 16px;
+                    max-width: 38px;
+                    border-radius: 3px;
+                    background-clip: content;
+                    qproperty-iconSize: 16px;
+                }
+
+                QTabWidget#propertyTab &gt; QTabBar::tab:first,
+                _ {
+                    margin-left: 32px;
+                    margin-right: 8px;
+                }
+            
+                Gui--PropertyEditor--PropertyEditor,
+                _ {
+                    margin: 0px 17px 17px;
+                    qproperty-headerHidden : true;
+                }
+
+            /* Task View */
+                Gui--TaskView--TaskBox QSint--ActionLabel,
+                _ {
+                    qproperty-iconSize: 0px;
+                    height: 22px;
+                    padding-left: 14px;
+                }
+
+                Gui--TaskView--TaskBox &gt; QSint--TaskHeader,
+                _ {
+                    margin-top: 1px;             
+                }
+                
+                Gui--TaskView--TaskBox &gt; QSint--TaskHeader &gt; QSint--ActionLabel,
+                _ {   
+                    padding-left: -4px;
+                }
+                
+        /* Grid Controls */
+            /* Button */
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QPushButton,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QWidget &gt; QPushButton,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QPushButton,
+                _ {
+                    min-width: 48px;
+                    margin: 0px;
+                    border-radius: 3px;
+                    padding: 0px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QPushButton:focus,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QWidget &gt; QPushButton:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QPushButton:focus,
+                _ {
+                    border-width: 1px;
+                    border-radius: 3px;
+                    padding: 0px;
+                    background-clip: border;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QWidget &gt; QLabel,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QLabel,
+                _ {
+                    padding-top: 1px;
+                    margin-left: -1px;
+                    border-left: 2px;
+                    padding-left: 1px;
+                }
+
+            /* Text Box */     
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QPlainTextEdit,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; Gui--FileChooser &gt; QLineEdit,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QLineEdit,
+                Gui--TreeWidget &gt; QWidget &gt; QLineEdit,
+                _ {
+                    min-width: 48px;
+                    margin: 0px;
+                    border-radius: 3px;
+                    padding: 0px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QPlainTextEdit:focus,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; Gui--FileChooser &gt; QLineEdit:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QLineEdit:focus,
+                Gui--TreeWidget &gt; QWidget &gt; QLineEdit:focus,
+                _ {
+                    padding-bottom: -1px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; Gui--FileChooser &gt; QLineEdit:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox &gt; QLineEdit:focus,
+                _ {
+                    padding-left: -1px;
+                }
+
+            /* Number Box */
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox,
+                _ {
+                    min-width: 52px;
+                    margin: 0px;
+                    border-radius: 3px;
+                    padding: 0px 36px 0px 0px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox::up-button,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox::up-button,
+                _ {
+                    padding: 0px 3px;
+                    right: 30px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox:down-button,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QAbstractSpinBox::down-button,
+                _ {
+                    padding: 0px 3px;
+                }
+
+            /* Combo Box */
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QComboBox,
+                _ {
+                    min-width: 48px;
+                    margin: 0px;
+                    border-radius: 3px;
+                    padding: 0px 35px 0px 2px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QComboBox:focus,
+                _ {
+                    border-width: 1px;
+                    border-radius: 3px;
+                    padding: 0px 35px 0px 2px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox:on,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QComboBox:on,
+                _ {
+                    padding-bottom: -1px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox::drop-down,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QComboBox::drop-down,
+                _ {
+                    padding: 0px 5px;
+                    top: 4px;
+                    right: 4px;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox QAbstractItemView,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QComboBox QAbstractItemView,
+                _ {
+                    padding: 0px -1px 0px;
+                }
+
+        /* Sketcher */
+            /* Constraints List */
+                QListView#listWidgetConstraints::indicator,
+                _ {
+                    width: 16px;
+                    height: 16px;
+                    margin: 0px;
+                    border: 0px;
+                    padding: 0px;
+                }
+
+            /* Panel */
+                QWidget#SketcherGui__TaskSketcherGeneral,
+                QWidget#SketcherGui__TaskSketcherConstrains,
+                QWidget#SketcherGui__TaskSketcherElements,
+                _ {
+                    qproperty-minimumSize: 0px 360px;
+                    qproperty-maximumSize: 16777215px 16777215px;
+                }
+
+            /* Redundant Controls */
+                QWidget#TaskSketcherMessages QWidget#showOriginalColor,
+                QWidget#TaskSketcherMessages QWidget#autoRemoveRedundants,
+                QWidget#SketcherGui__TaskSketcherElements QWidget#Explanation,
+                QWidget#SketcherGui__TaskSketcherElements QWidget#autoSwitchBox,
+                QWidget#SketcherGui__TaskSketcherConstrains QWidget#extendedInformation,
+                QWidget#SketcherGui__TaskSketcherConstrains QWidget#filterInternalAlignment,
+                _ {
+                    max-height: 0px;
+                    margin: 0px;
+                    border: 0px;
+                    padding: 0px;
+                }
+        /* Overlay */
+            /* Button */
+                Gui--OverlaySizeGrip,
+                _ {
+                    min-height: 0px;
+                    min-width: 0px;
+                    max-height: 0px;
+                    max-width: 0px;
+                }
+
+                Gui--OverlayToolButton,
+                _ {
+                    qproperty-icon: url(&quot;&quot;);
+                    min-height: 16px;
+                    min-width: 32px;
+                    max-height: 16px;
+                    max-width: 32px;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 3px;
+                    margin-bottom: 2px;
+                }
+
+                Gui--OverlayTabWidget#OverlayTop Gui--OverlayToolButton,
+                Gui--OverlayTabWidget#OverlayBottom Gui--OverlayToolButton,
+                _ {
+                    min-height: 32px;
+                    min-width: 16px;
+                    max-height: 32px;
+                    max-width: 16px;
+                }
+
+            /* Panel */
+                Gui--OverlayTabWidget,
+                _ {
+                    qproperty-enableEffect: 0;
+                }
+
+                Gui--OverlayTabWidget#OverlayTop &gt; Gui--OverlaySplitter,
+                _ {
+                    padding-top: 6px;
+                    padding-left: 107px;
+                    padding-right: 128px;
+                }
+
+                Gui--OverlayTabWidget#OverlayBottom &gt; Gui--OverlaySplitter,
+                _ {
+                    padding-right: 11px;
+                    padding-bottom: 6px;
+                }
+       
+    /* Text */
+        /* Caption */
+            QStatusBar,
+            QStatusBar QLabel,
+            QTabWidget#propertyTab &gt; QTabBar,
+            _ {
+                font-family: &quot;Segoe UI Variable Static Small&quot;;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 20px;
+            }
+
+        /* Body */
+            Gui--TaskView--TaskPanel QGroupBox,
+            QTabWidget#combiTab &gt; QTabBar,
+            QMainWindow &gt; QTabBar,
+            QMdiArea &gt; QTabBar,
+            * {
+                font-family: &quot;Segoe UI Variable Static Text&quot;;
+                font-style: normal;
+                font-weight: normal;
+                
+            }
+
+        /* Body Strong */
+            QSint--TaskHeader QSint--ActionLabel,
+            _ {
+                font-family: &quot;Segoe UI Variable Static Text&quot;;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+        /* Body Large */
+            QTabBar,
+            QGroupBox,
+            _ {
+                font-family: &quot;Segoe UI Variable Static Text&quot;;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 20px;
+            }
+
+        /* Code */
+            Gui--PythonConsole,
+            Gui--DockWnd--ReportOutput,
+            _ {
+                font-family: &quot;Cascadia Code SemiLight&quot;;
+            }
+
+/* Icons */
+    /* Controls */
+        /* Basic Input */
+            /* Combo Box */
+                /* Color Styles/Fill Color/Text/Primary */
+                    QComboBox::down-arrow,
+                    _ {
+                        image: url(resource/arrow.png);
+						width: 20px;
+						height: 20px;
+                    }
+
+                /* Color Styles/Fill Color/Text/Secondary */
+                    QComboBox::down-arrow:hover,
+                    _ {
+                        image: url(resource/arrow.png);
+                    }
+
+                /* Color Styles/Fill Color/Text/Tertirary */
+                    QComboBox::down-arrow:pressed,
+                    _ {
+                        image: url(resource/arrow.png);
+                    }
+
+                /* Color Styles/Fill Color/Text/Disabled */
+                    QComboBox::down-arrow:disabled,
+                    _ {
+                        image: url(resource/arrow.png);
+                    }
+
+            /* Checkbox */
+                /* Accent Styles/Fill Color/Text On Accent/Primary */
+                    QWidget::indicator:checked,
+                    _ {
+                        image: url(qss:resource/arrow.png);
+                    }
+
+                    QWidget::indicator:indeterminate,
+                    _ {
+                        image: url(qss:resource/arrow.png);
+                    }
+
+                /* Accent Styles/Fill Color/Text On Accent/Secondary */
+                    QWidget::indicator:checked:pressed,
+                    _ {
+                        image: url(qss:resource/arrow.png);
+                    }
+
+                    QWidget::indicator:indeterminate:pressed,
+                    _ {
+                        image: url(qss:resource/arrow.png);
+                    }
+
+                /* Accent Styles/Fill Color/Text On Accent/Disabled */
+                    QWidget::indicator:checked:disabled,
+                    _ {
+                        /*image: url(qss:CadWin/Dark/Checkbox/AcceptMedium-Disabled.svg);*/
+                    }
+
+                    QWidget::indicator:indeterminate:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/Checkbox/Dash12-Disabled.svg);
+                    }
+
+            /* Radio Button */
+                /* Accent Styles/Fill Color/Text On Accent/Primary */
+                    QRadioButton::indicator:checked,
+                    QRadioButton::indicator:pressed,
+                    QRadioButton::indicator:checked:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/RadioButton/Bullet-Primary.svg);
+                    }
+
+        /* Lists &amp; Collections */
+            /* Tree View */
+                /* Color Styles/Fill Color/Text/Primary */
+                    QTreeView::branch:has-children:closed,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronRightMed-Primary.svg);
+                    }
+
+                    QTreeView::branch:has-children:open,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronDownMed-Primary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Secondary */
+                    QTreeView::branch:has-children:closed:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronRightMed-Secondary.svg);
+                    }
+
+                    QTreeView::branch:has-children:open:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronDownMed-Secondary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Disabled */
+                    QTreeView::branch:has-children:closed:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronRightMed-Disabled.svg);
+                    }
+
+                    QTreeView::branch:has-children:open:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/TreeView/ChevronDownMed-Disabled.svg);
+                    }
+        
+        /* Menus &amp; Toolbars */ 
+            /* Command Bar */
+                /* Color Styles/Fill Color/Text/Primary */
+                    QToolBar &gt; QToolButton::menu-indicator:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/CommandBar/ChevronDownMed-Primary.svg);
+                    }
+
+                    QToolBarExtension:hover,
+                    _ {
+                        background-image: url(qss:CadWin/Dark/CommandBar/More-Primary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Secondary */
+                    QToolBar &gt; QToolButton::menu-indicator,
+                    _ {
+                        image: url(qss:CadWin/Dark/CommandBar/ChevronDownMed-Secondary.svg);
+                    }
+
+                    QToolBarExtension,
+                    _ {
+                        background-image: url(qss:CadWin/Dark/CommandBar/More-Secondary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Tertiary */
+                    QToolBar &gt; QToolButton::menu-indicator:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/CommandBar/ChevronDownMed-Tertiary.svg);
+                    }
+
+                    QToolBarExtension:pressed,
+                    _ {
+                        background-image: url(qss:CadWin/Dark/CommandBar/More-Tertiary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Disabled */
+                    QToolBar &gt; QToolButton::menu-indicator:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/CommandBar/ChevronDownMed-Disabled.svg);
+                    }
+
+                    QToolBarExtension:disabled,
+                    _ {
+                        background-image: url(qss:CadWin/Dark/CommandBar/More-Disabled.svg);
+                    }
+
+            /* Context Menu */
+                /* Color Styles/Fill Color/Text/Primary */
+                    QMenu::indicator:exclusive:checked,
+                    _ {
+                        image: url(qss:CadWin/Dark/ContextMenu/Bullet-Primary.svg);
+                    }
+
+                    QMenu::indicator:non-exclusive:checked,
+                    _ {
+                        image: url(qss:CadWin/Dark/ContextMenu/Accept-Primary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Secondary */
+                    QMenu::right-arrow,
+                    _ {
+                        image: url(qss:CadWin/Dark/ContextMenu/ChevronRight-Secondary.svg);
+                    }
+
+        /* Scrolling */
+            /* Scroll Bar */
+                /* Color Styles/Fill Color/Control Strong/Default */
+                    QScrollBar::up-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/ScrollBar/CaretUpSolid8-Default.svg);
+                    }
+
+                    QScrollBar::down-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/ScrollBar/CaretDownSolid8-Default.svg);
+                    }
+
+                    QScrollBar::left-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/ScrollBar/CaretLeftSolid8-Default.svg);
+                    }
+
+                    QScrollBar::right-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/ScrollBar/CaretRightSolid8-Default.svg);
+                    }
+
+        /* Text Fields */
+            /* Number Box */
+                /* Color Styles/Fill Color/Text/Primary */
+                    QAbstractSpinBox::up-arrow,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronUp-Primary.svg);
+                    }
+
+                    QAbstractSpinBox::down-arrow,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronDown-Primary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Secondary */
+                    QAbstractSpinBox::up-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronUp-Secondary.svg);
+                    }
+
+                    QAbstractSpinBox::down-arrow:hover,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronDown-Secondary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Tertiary */
+                    QAbstractSpinBox::up-arrow:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronUp-Tertiary.svg);
+                    }
+                    
+                    QAbstractSpinBox::down-arrow:pressed,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronDown-Tertiary.svg);
+                    }
+
+                /* Color Styles/Fill Color/Text/Disabled */
+                    QAbstractSpinBox::up-arrow:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronUp-Disabled.svg);
+                    }
+                    
+                    QAbstractSpinBox::down-arrow:disabled,
+                    _ {
+                        image: url(qss:CadWin/Dark/NumberBox/ChevronDown-Disabled.svg);
+                    }
+
+    /* FreeCAD */
+        /* Selection View */
+            /* Color Styles/Fill Color/Text/Primary */
+                Gui--DockWnd--SelectionView &gt; QToolButton:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/SelectionView/BackSpaceQWERTYLg-Primary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text/Secondary */
+                Gui--DockWnd--SelectionView &gt; QToolButton,
+                _ {
+                    image: url(qss:CadWin/Dark/SelectionView/BackSpaceQWERTYLg-Secondary.svg) ;
+                }
+
+            /* Color Styles/Fill Color/Text/Tertiary */
+                Gui--DockWnd--SelectionView &gt; QToolButton:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/SelectionView/BackSpaceQWERTYLg-Tertiary.svg);
+                }
+            
+            /* Color Styles/Fill Color/Text/Disabled */
+                Gui--DockWnd--SelectionView &gt; QToolButton:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/SelectionView/BackSpaceQWERTYLg-Disabled.svg);
+                }
+
+        /* Property View */
+            /* Color Styles/Fill Color/Text/Primary */
+                QTabWidget#propertyTab QTabBar::tab:first:selected,
+                QTabWidget#propertyTab QTabBar::tab:first:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Personalize-Primary.svg);
+                }
+
+                QTabWidget#propertyTab QTabBar::tab:last:selected,
+                QTabWidget#propertyTab QTabBar::tab:last:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Repair-Primary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text/Secondary */
+                QTabWidget#propertyTab QTabBar::tab:first,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Personalize-Secondary.svg);
+                }
+
+                QTabWidget#propertyTab QTabBar::tab:last,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Repair-Secondary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text/Tertiary */
+                QTabWidget#propertyTab QTabBar::tab:first:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Personalize-Tertiary.svg);
+                }
+
+                QTabWidget#propertyTab QTabBar::tab:last:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Repair-Tertiary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text/Disabled */
+                QTabWidget#propertyTab QTabBar::tab:first:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Personalize-Disabled.svg);
+                }
+
+                QTabWidget#propertyTab QTabBar::tab:last:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/PropertyView/Repair-Disabled.svg);
+                }
+
+        /* Sketcher */
+            /* Color Styles/Fill Color/Text On Accent/Primary */
+                QListView#listWidgetConstraints::indicator:!checked:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/View-Primary.svg);
+                }
+
+                QListView#listWidgetConstraints::indicator:checked:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/Hide-Primary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text On Accent/Secondary */
+                QListView#listWidgetConstraints::indicator:checked,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/View-Secondary.svg);
+                }
+
+                QListView#listWidgetConstraints::indicator:!checked,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/Hide-Secondary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text On Accent/Tertiary */
+                QListView#listWidgetConstraints::indicator:!checked:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/View-Tertiary.svg);
+                }
+
+                QListView#listWidgetConstraints::indicator:checked:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/Hide-Tertiary.svg);
+                }
+
+            /* Color Styles/Fill Color/Text On Accent/Disabled */
+                QListView#listWidgetConstraints::indicator:checked:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/View-Disabled.svg);
+                }
+
+                QListView#listWidgetConstraints::indicator:!checked:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Sketcher/Hide-Disabled.svg);
+                }
+
+        /* Overlay */
+            /* Color Styles/Fill Color/Text/Primary */
+                Gui--OverlayToolButton[objectName=&quot;OBTN Close&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Clear12-Primary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN AutoMode&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Settings-Primary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Transparent&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/View-Primary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Float&quot;]:hover,
+                Gui--OverlaySplitterHandle Gui--OverlayToolButton:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/NewWindow-Primary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayTop Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Selection view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockTop-Primary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayRight Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Combo View&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Property view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockRight-Primary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayBottom Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Report view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Python console&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockBottom-Primary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayLeft Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                QDockWidget[objectName=&quot;Tree view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockLeft-Primary.svg);
+                }
+            
+            /* Color Styles/Fill Color/Text/Secondary */
+                Gui--OverlayToolButton[objectName=&quot;OBTN Close&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Clear12-Secondary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN AutoMode&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Settings-Secondary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Transparent&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/View-Secondary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Float&quot;],
+                Gui--OverlaySplitterHandle Gui--OverlayToolButton,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/NewWindow-Secondary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayTop Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Selection view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockTop-Secondary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayRight Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Combo View&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Property view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockRight-Secondary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayBottom Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Report view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Python console&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockBottom-Secondary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayLeft Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                QDockWidget[objectName=&quot;Tree view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;],
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockLeft-Secondary.svg);
+                }
+                
+            /* Color Styles/Fill Color/Text/Tertiary */
+                Gui--OverlayToolButton[objectName=&quot;OBTN Close&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Clear12-Tertiary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN AutoMode&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/Settings-Tertiary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Transparent&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/View-Tertiary.svg);
+                }
+
+                Gui--OverlayToolButton[objectName=&quot;OBTN Float&quot;]:pressed,
+                Gui--OverlaySplitterHandle Gui--OverlayToolButton:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/NewWindow-Tertiary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayTop Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Selection view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockTop-Tertiary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayRight Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Combo View&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Property view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockRight-Tertiary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayBottom Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Report view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Python console&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockBottom-Tertiary.svg);
+                }
+
+                Gui--OverlayTabWidget#OverlayLeft Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                QDockWidget[objectName=&quot;Tree view&quot;] Gui--OverlayToolButton[objectName=&quot;OBTN Overlay&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Overlay/DockLeft-Tertiary.svg);
+                }
+
+    /* Commands */
+        /* Standard-View */
+            /* Dock View */
+                QToolButton[whatsThis=&quot;Std_ViewDock&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/StandardView/OpenPane-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewDock&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/OpenPane-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewDock&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/OpenPane-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewDock&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/OpenPane-Disabled.svg);
+                }
+
+            /* Undock View */
+                QToolButton[whatsThis=&quot;Std_ViewUndock&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/StandardView/ClosePane-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewUndock&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/ClosePane-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewUndock&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/ClosePane-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_ViewUndock&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/StandardView/ClosePane-Disabled.svg);
+                }
+
+        /* File */
+            /* New */
+                QToolButton[whatsThis=&quot;Std_New&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/File/NewFolder-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_New&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/NewFolder-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_New&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/NewFolder-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_New&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/NewFolder-Disabled.svg);
+                }
+
+            /* Open */
+                QToolButton[whatsThis=&quot;Std_Open&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/File/OpenFolder-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Open&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/OpenFolder-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Open&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/OpenFolder-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Open&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/OpenFolder-Disabled.svg);
+                }
+                
+            /* Save */
+                QToolButton[whatsThis=&quot;Std_Save&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/File/Save-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Save&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Save-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Save&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Save-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Save&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Save-Disabled.svg);
+                }
+                
+            /* Print */
+                QToolButton[whatsThis=&quot;Std_Print&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/File/Print-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Print&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Print-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Print&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Print-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Print&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/File/Print-Disabled.svg);
+                }
+                
+        /* Edit */
+            /* Cut */
+                QToolButton[whatsThis=&quot;Std_Cut&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Cut-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Cut&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Cut-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Cut&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Cut-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Cut&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Cut-Disabled.svg);
+                }
+
+            /* Copy */
+                QToolButton[whatsThis=&quot;Std_Copy&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Copy-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Copy&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Copy-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Copy&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Copy-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Copy&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Copy-Disabled.svg);
+                }
+                
+            /* Paste */
+                QToolButton[whatsThis=&quot;Std_Paste&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Paste-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Paste&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Paste-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Paste&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Paste-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Paste&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Paste-Disabled.svg);
+                }
+                
+            /* Undo */
+                QToolButton[whatsThis=&quot;Std_Undo&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Undo-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Undo&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Undo-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Undo&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Undo-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Undo&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Undo-Disabled.svg);
+                }
+                
+            /* Redo */
+                QToolButton[whatsThis=&quot;Std_Redo&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Redo-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Redo&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Redo-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Redo&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Redo-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Redo&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Redo-Disabled.svg);
+                }
+
+            /* Refresh */
+                QToolButton[whatsThis=&quot;Std_Refresh&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Refresh-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Refresh&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Refresh-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Refresh&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Refresh-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Refresh&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Refresh-Disabled.svg);
+                }
+
+            /* Delete */
+                QToolButton[whatsThis=&quot;Std_Delete&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Edit/Delete-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Delete&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Delete-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Delete&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Delete-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_Delete&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Edit/Delete-Disabled.svg);
+                }
+        /* Help */
+            /* What's This? */
+                QToolButton[whatsThis=&quot;Std_WhatsThis&quot;],
+                _ {
+                    qproperty-toolButtonStyle: ToolButtonTextOnly;
+                    image: url(qss:CadWin/Dark/Commands/Help/PenTip-Secondary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_WhatsThis&quot;]:hover,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Help/PenTip-Primary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_WhatsThis&quot;]:pressed,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Help/PenTip-Tertiary.svg);
+                }
+
+                QToolButton[whatsThis=&quot;Std_WhatsThis&quot;]:disabled,
+                _ {
+                    image: url(qss:CadWin/Dark/Commands/Help/PenTip-Disabled.svg);
+                }
+
+/* Theme Color Styles */
+    /* Fill Color */
+        /* Text */
+            /* Primary */
+                * {
+                    color: #FFFFFF;
+                }
+
+                SpreadsheetGui--SheetTableView,
+                _ {
+                    qproperty-foregroundColor: #FFFFFF;
+                }
+
+                SpreadsheetGui--SheetTableView,
+                QComboBox QAbstractItemView,
+                QListView,
+                QTreeView,
+                _ { 
+                    selection-color : #FFFFFF;
+                }
+
+            /* Secondary */
+                QTableView::item:hover,
+                QStatusBar QLabel,
+                QStatusBar,
+                QSint--TaskHeader QSint--ActionLabel,
+                QTabBar::tab:!hover:!selected,
+                QMenuBar::item:pressed,
+                QComboBox:pressed,
+                QPushButton:pressed,
+                _ {
+                    color: rgba(255, 255, 255, 0.786);
+                }
+        
+                Gui--PropertyEditor--PropertyEditor, 
+                _ {
+                    qproperty-groupTextColor: rgba(255, 255, 255, 0.786);
+                }
+
+            /* Tertiary */
+                QTabBar::tab:pressed,
+                _ { 
+                    color : rgba(255, 255, 255, 0.5442);
+                }
+
+            /* Disabled */
+                QTableView::item:disabled,
+                QWidget:disabled,
+                _ {
+                    color: rgba(255, 255, 255, 0.3628);
+                }
+                
+        /* Control */
+            /* Transparent */
+                QTableCornerButton::section,
+                QHeaderView::section,
+                * {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+            /* Default */
+                QLineEdit,
+                QPlainTextEdit,
+                QTextEdit,
+                QAbstractSpinBox,
+                QComboBox, 
+                QPushButton,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0605);
+                }
+
+            /* Secondary */
+                QLineEdit[readOnly=&quot;false&quot;]:hover,
+                QPlainTextEdit[readOnly=&quot;false&quot;]:hover,
+                QTextEdit[readOnly=&quot;false&quot;]:hover,
+                QAbstractSpinBox[readOnly=&quot;false&quot;]:hover,
+                QComboBox:hover, 
+                QPushButton:hover,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0837);
+                }
+
+            /* Tertiary */
+                QLineEdit[readOnly=&quot;false&quot;]:pressed,
+                QPlainTextEdit[readOnly=&quot;false&quot;]:pressed,
+                QTextEdit[readOnly=&quot;false&quot;]:pressed,
+                QAbstractSpinBox[readOnly=&quot;false&quot;]:pressed,
+                QComboBox:pressed, 
+                QPushButton:pressed,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0326);
+                }
+
+            /* Disabled */
+                QLineEdit:disabled,
+                QPlainTextEdit:disabled,
+                QTextEdit:disabled,
+                QAbstractSpinBox:disabled,
+                QComboBox:disabled, 
+                QPushButton:disabled,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0419);
+                }
+
+            /* Input Active */
+                QLineEdit[readOnly=&quot;false&quot;]:focus,
+                QPlainTextEdit[readOnly=&quot;false&quot;]:focus,
+                QTextEdit[readOnly=&quot;false&quot;]:focus,
+                QAbstractSpinBox[readOnly=&quot;false&quot;]:focus,
+                QComboBox:on, 
+                _ {
+                    background-color: rgba(30, 30, 30, 0.7);
+                }
+
+        /* Control Strong */
+            /* Default */
+                QProgressBar,
+                QWidget::handle,
+                QSlider::add-page,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.5442);
+                }
+
+            /* Disabled */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.2465);
+                } */
+
+        /* Control Alt */
+            /* Transparent */
+                *::pane,
+                *::tab,
+                * {
+                    border-color: rgba(255, 255, 255, 0);
+                    gridline-color: rgba(40, 40, 40, 0);
+                }
+
+                QScrollBar::add-page,
+                QScrollBar::sub-page,
+                QScrollBar::add-line,
+                QScrollBar::sub-line,
+                QScrollBar,
+                _ {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+                Gui--ExpLineEdit[readOnly=&quot;true&quot;],
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QLabel:disabled,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QLabel,
+                QTabWidget#propertyTab QTabBar::tab,
+                QToolBar &gt; QToolButton:disabled,
+                QToolBar &gt; QToolButton,
+                _ {
+                    color: rgba(255, 255, 255, 0);
+                }
+
+            /* Secondary */
+                QWidget::indicator,
+                _ {
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+
+            /* Tertiary */
+                QWidget::indicator:hover,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0419);
+                }
+
+            /* Quaternary */
+                QWidget::indicator:pressed, 
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0698);
+                }
+
+            /* Disabled */
+                QWidget::indicator:disabled, 
+                _ {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+        /* Subtle */
+            /* Transparent */
+                QListView#listWidgetConstraints::indicator:checked,
+                QListView#listWidgetConstraints::indicator:pressed,
+                QListView#listWidgetConstraints::indicator:hover,
+                QListView#listWidgetConstraints::indicator,
+                QMenu::indicator:indeterminate,
+                QMenu::indicator:checked,
+                QMenu::indicator:pressed,
+                QMenu::indicator:hover,
+                QMenu::indicator,
+                QTreeView::branch,
+                QTreeView::item,
+                QListView::item,
+                QComboBox::drop-down,
+                _ {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+                Gui--ExpLineEdit[readOnly=&quot;true&quot;],
+                QListView,
+                QTreeView,
+                _ { 
+                    selection-background-color : rgba(255, 255, 255, 0);
+                }
+
+            /* Secondary */
+                Gui--OverlayToolButton:hover,
+                QTabWidget#propertyTab QTabBar::tab:hover,
+                QTabWidget#propertyTab QTabBar::tab:selected,
+                QToolBar#Workbench QTabBar::tab:!selected:hover,
+                QToolBar &gt; QToolButton:hover,
+                QTreeView::branch:hover,
+                QTreeView::branch:selected,
+                QTreeView::item:hover,
+                QTreeView::item:selected,
+                QListView::item:hover,
+                QListView::item:selected,
+                QMenuBar::item:selected,
+                QMenu::item:selected,
+                QAbstractSpinBox::down-button:hover,
+                QAbstractSpinBox::up-button:hover,
+                QComboBox::drop-down:hover,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0605);
+                }
+
+                SpreadsheetGui--SheetTableView,
+                QComboBox QAbstractItemView,
+                _ { 
+                    selection-background-color : rgba(255, 255, 255, 0.0605);
+                }
+
+            /* Tertiary */
+                Gui--OverlayToolButton:pressed,
+                QTabWidget#propertyTab QTabBar::tab:pressed,
+                QAbstractSpinBox::up-button:pressed,
+                QAbstractSpinBox::down-button:pressed,
+                QToolBar &gt; QToolButton:pressed,
+                QMenuBar::item:pressed,
+                QMenu::item:pressed,
+                QComboBox::drop-down:pressed,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0419);
+                }
+
+            /* Disabled */
+                QMenuBar::item:disabled,
+                QMenu::item:disabled,
+                _ {
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+        /* Control Solid */
+            /* Default */
+                QSlider::handle,
+                _ {
+                    border-color: #454545;
+                }
+
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox:focus,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton,
+                _ {
+                    background-color: #454545;
+                }
+            
+            /* Secondary */
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox:hover,
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton:hover,
+                _ {
+                    background-color: #4A4A4A;
+                }
+
+            /* Tertiary */
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton:pressed,
+                _ {
+                    background-color: #3F3F3F;
+                }
+
+            /* Disabled */
+                Gui--PropertyEditor--PropertyEditor &gt; QWidget &gt; QWidget &gt; QPushButton:disabled,
+                QSlider::handle:disabled,
+                _ {
+                    background-color: #626262;
+                }
+            
+            /* Input Active */
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QAbstractSpinBox[readOnly=&quot;false&quot;]:focus,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QComboBox:on,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QLineEdit[readOnly=&quot;false&quot;]:focus,
+                SpreadsheetGui--SheetTableView &gt; QWidget &gt; QPlainTextEdit[readOnly=&quot;false&quot;]:focus,
+                _{
+                    background-color: #262626;
+                }
+
+        /* System */
+            /* Critical */
+                /* _ {
+                    background-color: #FF99A4;
+                } */
+
+            /* Success */
+                /* _ {
+                    background-color: #6CCB5F;
+                } */
+
+            /* Attention */
+                /* _ {
+                    background-color: #60CDFF;
+                } */
+
+            /* Caution */
+                /* _ {
+                    background-color: #FCE100;
+                } */
+
+            /* Attention Background */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.0326);
+                } */
+
+            /* Success Background */
+                /* _ {
+                    background-color: #393D1B;
+                } */
+
+            /* Caution Background */
+                /* _ {
+                    background-color: #433519;
+                } */
+
+            /* Critical Background */
+                /* _ {
+                    background-color: #442726;
+                } */
+
+            /* System/Neutral */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.5442);
+                } */
+
+            /* Neutral Background */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.0326);
+                } */
+
+            /* Solid Attention Background */
+                /* _ {
+                    background-color: #2E2E2E;
+                } */
+
+            /* Solid Neutral */
+                /* _ {
+                    background-color: #9D9D9D;
+                } */
+
+            /* Solid Neutral Background */
+                /* _ {
+                    background-color: #2E2E2E;
+                } */
+
+        /* Control On Image */
+            /* Default */
+                /* _ {
+                    background-color: rgba(28, 28, 28, 0.7);
+                } */
+            
+            /* Secondary */
+                /* _ {
+                    background-color: #1A1A1A;
+                } */
+            
+            /* Tertiary */
+                /* _ {
+                    background-color: #131313;
+                } */
+
+            /* Disabled */
+                /* _ {
+                    background-color: rgba(30, 30, 30, 0);
+                } */
+
+        /* Caption Control Close Fill */
+            /* Primary */
+                Gui--OverlayToolButton[objectName=&quot;OBTN Close&quot;]:hover,
+                _ {
+                    background-color: #C42B1C;
+                }
+
+            /* Secondary */
+                Gui--OverlayToolButton[objectName=&quot;OBTN Close&quot;]:pressed,
+                _ {
+                    background-color: rgba(196, 43, 28, 0.9);
+                }
+
+    /* Elevation */
+        /* Control */
+            /* Border */
+                QLineEdit,
+                QPlainTextEdit,
+                QTextEdit,
+                QAbstractSpinBox,
+                QComboBox,
+                QPushButton,
+                _ { 
+                    border-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                        stop: 0 rgba(255, 255, 255, 0.093),
+                        stop: 0.0957 rgba(255, 255, 255, 0.0698),
+                        stop: 0.0958 rgba(255, 255, 255, 0.0698)
+                    );                    
+                    border-top-color: rgba(255, 255, 255, 0.093);
+                    border-bottom-color: rgba(255, 255, 255, 0.0698);
+                }
+
+        /* Circle */
+            /* Border */
+                /* _ {
+                    border-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                        stop: 0 rgba(255, 255, 255, 0.093),
+                        stop: 0.5 rgba(255, 255, 255, 0.0698)
+                    ); 
+                } */
+
+        /* Text Control */
+            /* Border */
+                QLineEdit[readOnly=&quot;false&quot;],
+                QPlainTextEdit[readOnly=&quot;false&quot;],
+                QTextEdit[readOnly=&quot;false&quot;],
+                _ {
+                    border-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                        stop: 0.9998 rgba(255, 255, 255, 0.08),
+                        stop: 1 rgba(255, 255, 255, 0.5442),
+                        stop: 1 rgba(255, 255, 255, 0.5442)
+                    );
+                    border-top-color: rgba(255, 255, 255, 0.08);
+                    border-bottom-color: rgba(255, 255, 255, 0.5442);
+                }
+
+    /* Stroke Color */
+        /* Control Stroke */
+            /* Default */
+                QLineEdit[readOnly=&quot;false&quot;]:pressed,
+                QLineEdit:disabled,
+                QPlainTextEdit[readOnly=&quot;false&quot;]:pressed,
+                QPlainTextEdit:disabled,
+                QTextEdit[readOnly=&quot;false&quot;]:pressed,
+                QTextEdit:disabled,
+                QAbstractSpinBox[readOnly=&quot;false&quot;]:pressed,
+                QAbstractSpinBox:disabled,
+                QComboBox:pressed,
+                QComboBox:disabled,
+                QPushButton:pressed,
+                QPushButton:disabled,
+                _ {
+                    border-color: rgba(255, 255, 255, 0.0698);
+                }
+
+            /* Secondary */
+                /* _ {
+                    border-color: rgba(255, 255, 255, 0.093);
+                } */
+
+            /* For Strong Fill When On Image */
+                SpreadsheetGui--SheetTableView,
+                _ { 
+                    gridline-color: rgba(0, 0, 0, 0.42);
+                }
+
+        /* Control Strong Stroke */
+            /* Default */
+                QWidget::indicator,
+                _ {
+                    border-color: rgba(255, 255, 255, 0.5442);
+                }
+
+            /* Disabled */
+                QWidget::indicator:pressed,
+                QWidget::indicator:disabled,
+                _ {
+                    border-color: rgba(255, 255, 255, 0.1581);
+                }
+
+        /* Divider Stroke */
+            /* Default */
+                QToolBar::handle,
+                QWidget::separator,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0837);
+                }
+
+        /* Surface Stroke */
+            /* Default */
+                /* _ {
+                    border-color: rgba(117, 117, 117, 0.4);
+                } */
+
+            /* Flyout */
+                QStatusBar,
+                QToolTip,
+                QMenu,
+                QMenuBar,
+                QToolBar,
+                QComboBox QAbstractItemView,
+                _ {
+                    border-color: rgba(0, 0, 0, 0.2);
+                }
+                
+                QMainWindow:separator,
+                _ {
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
+
+        /* Card Stroke */
+            /* Default */
+                Gui--Dialog--DlgPreferencesImp &gt; QWidget#tabWidgetStack,
+                QGroupBox::title,
+                QGroupBox, 
+                _ {
+                    border-color: rgba(0, 0, 0, 0.1);
+                }
+
+            /* Default Solid */
+                /* _ {
+                    border-color: #1C1C1C;
+                } */
+
+        /* Focus Stroke */
+            /* Outer */
+                QRadioButton:focus,
+                QCheckBox:focus,
+                QComboBox:focus,
+                QPushButton:default:focus,
+                QPushButton:checked:focus,
+                QPushButton:focus,
+                _ { 
+                    border-color: rgba(255, 255, 255, 0.7);
+                }
+
+            /* Inner */
+                /* _ {
+                    border-color: rgba(0, 0, 0, 0.7);
+                } */
+
+    /* Background Fill Color */
+        /* Card Background */
+            /* Default */
+                QSint--TaskHeader,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0512);
+                }
+
+                Gui--PropertyEditor--PropertyEditor {
+                    qproperty-groupBackground: rgba(255, 255, 255, 0.0512);
+                }
+
+            /* Secondary */
+                Gui--Dialog--DlgExpressionInput QSplitter,
+                Gui--Dialog--DlgPreferencesImp &gt; QWidget#tabWidgetStack,
+                Gui--PropertyView QTreeView::branch,
+                QSint--ActionGroup QFrame[class=&quot;content&quot;],
+                _ {
+                    background-color: rgba(255, 255, 255, 0.0326);
+                }
+
+                Gui--PropertyEditor--PropertyEditor {
+                    qproperty-itemBackground: rgba(255, 255, 255, 0.0326);
+                }
+
+        /* Smoke */
+            /* Default */
+                /* _ {
+                    background-color: rgba(0, 0, 0, 0.3);
+                } */
+
+        /* Solid Background */
+            /* Base */
+                Gui--Dialog--DlgParameterImp,
+                QDialog, 
+                _ { 
+                    background-color: #202020;
+                }
+
+            /* Secondary */
+                QMdiArea,
+                QStatusBar,
+                _ {
+                    background-color: #1C1C1C;
+                }
+
+            /* Tertiary */
+                QDockWidget,
+                QMainWindow,
+                QToolBar,
+                _ {
+                    background-color: #282828;
+                }
+
+            /* Quarternary */
+                SpreadsheetGui--SheetTableView,
+                QMdiSubWindow,
+                _ {
+                    background-color: #2C2C2C;
+                }  
+
+        /* Mica Background */
+            /* Base */
+                QToolBar:top,
+                QToolBar:left,
+                QMenuBar, 
+                _ {
+                    background-color: rgba(32, 32, 32, 1);
+                }
+
+        /* Acrylic Background */
+            /* Default */
+                QToolTip,
+                QScrollBar:hover,
+                QMenu,
+                QComboBox QAbstractItemView,
+                _ {
+                    background-color: rgba(44, 44, 44, 0.96);
+                }
+
+            /* Base */
+                /* _ {
+                    background-color: rgba(32, 32, 32, 0.96);
+                } */
+
+        /* Layer */
+            /* Default */
+                QGroupBox,
+                _ {
+                    background-color: rgba(58, 58, 58, 0.3);
+                }
+
+            /* Alt */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.0538);
+                } */
+
+        /* Layer On Acrylic */
+            /* Default */
+                /* _ {
+                    background-color: rgba(255, 255, 255, 0.0359);
+                } */
+
+/* Accent Color Styles */
+    /* Fill Color */
+        /* Accent Text */
+            /* Primary */
+                Gui--UrlLabel,
+                *[haslink=&quot;true&quot;],
+                _ { 
+                    color: #99EBFF;
+                }
+
+                SpreadsheetGui--SheetTableView,
+                _ {
+                    qproperty-aliasForegroundColor: #99EBFF;
+                }
+
+            /* Secondary */
+                Gui--UrlLabel:hover,
+                *[haslink=&quot;true&quot;]:hover,
+                _ {
+                    color: #99EBFF;
+                }
+
+            /* Tertiary */
+                Gui--UrlLabel:pressed,
+                *[haslink=&quot;true&quot;]:pressed,
+                _ {
+                    color: #60CDFF;
+                }
+
+            /* Disabled */
+                Gui--UrlLabel:disabled,
+                *[haslink=&quot;true&quot;]:disabled,
+                _ {
+                    color: rgba(255, 255, 255, 0.3628);
+                }
+
+        /* Text On Accent */
+            /* Primary */
+                QPushButton:default,
+                QPushButton:checked, 
+                _ {
+                    color: #000000;
+                }
+
+            /* Secondary */
+                QPushButton:default:pressed,
+                QPushButton:checked:pressed, 
+                _ {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+            /* Disabled */
+                QPushButton:default:disabled,
+                QPushButton:checked:disabled,
+                _ {
+                    color: rgba(255, 255, 255, 0.5302);
+                }
+
+            /* Selected Text */
+                * {
+                    selection-color: #FFFFFF;
+                }
+
+        /* Accent */
+            /* Default */
+                QProgressBar::chunk,
+                QSlider::sub-page,
+                QSlider::handle,
+                QAbstractItemView::indicator:indeterminate,
+                QAbstractItemView::indicator:checked,
+                QGroupBox::indicator:indeterminate,
+                QGroupBox::indicator:checked,
+                QAbstractButton::indicator:indeterminate,
+                QAbstractButton::indicator:checked,
+                QPushButton:default,
+                QPushButton:checked,
+                _ {
+                    background-color: rgba(96, 205, 255, 1);
+                }
+
+                QTabBar::tab:selected,
+                _ {
+                    border-color: rgba(96, 205, 255, 1);
+                }
+
+            /* Secondary */
+                QSlider::sub-page:hover,
+                QSlider::handle:hover,
+                QAbstractItemView::indicator:indeterminate:hover,
+                QAbstractItemView::indicator:checked:hover,
+                QGroupBox::indicator:indeterminate:hover,
+                QGroupBox::indicator:checked:hover,
+                QAbstractButton::indicator:indeterminate:hover,
+                QAbstractButton::indicator:checked:hover,
+                QPushButton:checked:hover,
+                QPushButton:default:hover,
+                _ {
+                    background-color: rgba(96, 205, 255, 0.9);
+                }
+
+            /* Tertiary */
+                QSlider::sub-page:pressed,
+                QSlider::handle:pressed,
+                QAbstractItemView::indicator:indeterminate:pressed,
+                QAbstractItemView::indicator:checked:pressed,
+                QGroupBox::indicator:indeterminate:pressed,
+                QGroupBox::indicator:checked:pressed,
+                QAbstractButton::indicator:indeterminate:pressed,
+                QAbstractButton::indicator:checked:pressed,
+                QPushButton:default:pressed,
+                QPushButton:checked:pressed,
+                _ {
+                    background-color: rgba(96, 205, 255, 0.8);
+                }
+
+            /* Disabled */
+                QSlider::sub-page:disabled,
+                QAbstractItemView::indicator:indeterminate:disabled,
+                QAbstractItemView::indicator:checked:disabled,
+                QGroupBox::indicator:indeterminate:disabled,
+                QGroupBox::indicator:checked:disabled,
+                QAbstractButton::indicator:indeterminate:disabled,
+                QAbstractButton::indicator:checked:disabled,
+                QPushButton:default:disabled,
+                QPushButton:checked:disabled,
+                _ {
+                    background-color: rgba(255, 255, 255, 0.1581);
+                }
+
+            /* Selected Text Background */
+                * {
+                    selection-background-color: #0078D4;
+                }
+
+    /* Elevation */
+        /* Text Control */
+            /* Border Focused */
+                QLineEdit[readOnly=&quot;false&quot;]:focus,
+                QPlainTextEdit[readOnly=&quot;false&quot;]:focus,
+                QTextEdit[readOnly=&quot;false&quot;]:focus,
+                QAbstractSpinBox[readOnly=&quot;false&quot;]:focus,
+                QComboBox:on,
+                _ {
+                    border-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                        stop: 0.9689 rgba(255, 255, 255, 0.08),
+                        stop: 0.969 rgba(96, 205, 255, 0.5442)
+                    );
+                    border-top-color: rgba(255, 255, 255, 0.08);
+                    border-bottom-color: rgba(96, 205, 255, 1);
+                }
+
+        /* Accent Control */
+            /* Border */
+                QPushButton:default,
+                QPushButton:checked,
+                _ { 
+                    border-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                        stop: 0.9067 rgba(255, 255, 255, 0.08),
+                        stop: 1 rgba(0, 0, 0, 0.14)
+                    );
+                    border-top-color: rgba(255, 255, 255, 0.08);
+                    border-bottom-color: rgba(0, 0, 0, 0.14);
+                }
+
+    /* Stroke Color */
+        /* Control Stroke */
+            /* On Accent Default */
+                QPushButton:default:pressed,
+                QPushButton:checked:pressed,
+                _ {
+                    border-color: rgba(255, 255, 255, 0.08);
+                }
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="strWyniki">
+         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="100,100,0,100">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="daneStudenta">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_10">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="ocenaBl2">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLineEdit" name="ocenaBl3">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="ocenaBl1">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_2">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 2</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="ocenaBl4">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 3</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_4">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 4</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>150</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <spacer name="verticalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="napisKoncowa">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Ocena końcowa:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="ocenaZaEgz">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="accept">
+              <property name="text">
+               <string>ZATWIERDŹ</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="strStartowa">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0" colspan="3">
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="1" column="0">
+             <widget class="QLabel" name="etBlok1">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 1:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLineEdit" name="ocenaBlok3">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="etBlok3">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 3:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="ocenaBlok1">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLabel" name="etBlok4">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 4:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLineEdit" name="ocenaBlok4">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="ocenaBlok2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>15</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="etBlok2">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Blok 2:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QComboBox" name="studentList">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>13</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="acceptDrops">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="examStart">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>ZACZNIJ EGZAMIN</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="chooseFilepath">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>MIEJSCE ZAPISU</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="loadButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>WCZYTAJ</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="3">
+           <layout class="QGridLayout" name="gridLayout_2"/>
+          </item>
+          <item row="3" column="1">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1">
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="strEgzamin">
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <widget class="QLabel" name="etBlok">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>20</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="questionLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Segoe UI Variable Static Text</family>
+              <pointsize>15</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="acceptDrops">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::AutoText</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="2">
+             <widget class="QComboBox" name="listaOcen">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>25</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="editable">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="etOcenaZaPytanie">
+              <property name="font">
+               <font>
+                <family>Segoe UI Variable Static Text</family>
+                <pointsize>30</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>OCENA ZA PYTANIE:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <layout class="QGridLayout" name="gridLayout_9">
+            <item row="0" column="1">
+             <widget class="QPushButton" name="finishExam">
+              <property name="text">
+               <string>ZAKOŃCZ</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="next">
+              <property name="text">
+               <string>DALEJ</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>639</width>
+     <height>34</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
