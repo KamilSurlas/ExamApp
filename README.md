@@ -11,6 +11,6 @@ If student's points >= 4.5 he can pick one of 3 drawn questions
 If student's points >= 5.5 he skipps the question and instantly got 5.0 degree  
  
 ## Authors
-Kamil Surlas  
-Michał Wilkosz
+<a href="https://github.com/KamilSurlas">Kamil Surlas</a>  
+<a href="https://github.com/MichalWilkosz01">Michał Wilkosz</a>  
  
